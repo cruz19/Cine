@@ -41,7 +41,7 @@ public class GenerarPDF {
                 
                 document.add(getInfo(" "));
                 
-                document.add(getCinta("C:/Users/user/Desktop/ProyectoFinal/src/recursos/cintilla.png"));
+                document.add(getCinta("C:/Users/user/Desktop/Cine/src/recursos/cintilla.png"));
                 
                 document.add(getInfo(" "));
                     //header
@@ -58,6 +58,7 @@ public class GenerarPDF {
                     //Contenido
                 String parrafoInfo = "";
                 parrafoInfo += "Usuario: "+recibo.getCliente()+"\n";
+                parrafoInfo += "Película: "+recibo.getPelicula()+"\n";
                 parrafoInfo += "Sala: "+recibo.getSala()+"\n";
                 parrafoInfo += "Horario: "+recibo.getHorario()+"\n";
                 parrafoInfo += "Asientos comprados: \n";
@@ -75,7 +76,7 @@ public class GenerarPDF {
                     //footer
                 document.add(getFooter(recibo.getPie_pagina()));
                 
-                document.add(getCinta("C:/Users/user/Desktop/ProyectoFinal/src/recursos/cintilla.png"));
+                document.add(getCinta("C:/Users/user/Desktop/Cine/src/recursos/cintilla.png"));
                 
                 document.close();
                 

@@ -374,7 +374,7 @@ public final class VentanaCompra extends javax.swing.JFrame {
             try{
                 
                 Recibo recibo = new Recibo("RECIBO DE COMPRA",
-                capitalize(session.getNombre()),sala,horario,"C:/Users/user/Desktop/ProyectoFinal/src/recursos/logoCine.png"
+                capitalize(session.getNombre()),capitalize(pelicula),sala,horario,"C:/Users/user/Desktop/Cine/src/recursos/logoCine.png"
                 ,"Udec cinemas",asientosPDF,getRandom());
                 
                 generarPDF.generarPDF(recibo);
