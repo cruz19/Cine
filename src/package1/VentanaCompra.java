@@ -22,6 +22,7 @@ public final class VentanaCompra extends javax.swing.JFrame {
     private ArrayList<String> asientos_ocupados;
             
     public VentanaCompra(Session session,String pelicula, String horario, String sala) {
+        
         setResizable(false);
             /////////////////////7
         this.session = session;
@@ -273,7 +274,7 @@ public final class VentanaCompra extends javax.swing.JFrame {
         lbl_nombreSala2.setText("* Selecciona tu(s) asiento(s) *");
 
         panelAsientos.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 15, 20, 15));
-        panelAsientos.setLayout(new java.awt.GridLayout(0, 12, 5, 5));
+        panelAsientos.setLayout(new java.awt.GridLayout(0, 13, 5, 5));
         jScrollPane1.setViewportView(panelAsientos);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -369,15 +370,15 @@ public final class VentanaCompra extends javax.swing.JFrame {
             
                 //Recibo de compra
             
-            
-            
             try{
                 
-                Recibo recibo = new Recibo("RECIBO DE COMPRA",
-                capitalize(session.getNombre()),capitalize(pelicula),sala,horario,"C:/Users/user/Desktop/Cine/src/recursos/logoCine.png"
-                ,"Udec cinemas",asientosPDF,getRandom());
+                String num_recibo = getRandom();
                 
-                generarPDF.generarPDF(recibo);
+                Recibo recibo = new Recibo("RECIBO DE COMPRA",
+                capitalize(session.getNombre()),capitalize(pelicula),getFechaActual(),sala,horario,"C:/Users/user/Desktop/Cine/src/recursos/logoCine.png"
+                ,"Udec cinemas",asientosPDF,num_recibo);
+                
+                generarPDF.generarPDF(recibo,num_recibo);
                 
                 
             }catch(BadElementException | IOException e){
@@ -408,6 +409,34 @@ public final class VentanaCompra extends javax.swing.JFrame {
 
     private String getRandom(){
         return String.valueOf((int)(Math.random()*1000));
+    }
+    
+    private String getFechaActual(){
+        
+        String fechaActual = "";
+        
+        Calendar fecha = new GregorianCalendar();
+        
+        int dia = fecha.get(Calendar.DAY_OF_MONTH);
+        int mes = fecha.get(Calendar.MONTH)+1;
+        int año = fecha.get(Calendar.YEAR);
+        
+        if(dia<=9){
+            fechaActual += "0"+dia+"-";
+        }else{
+            fechaActual += dia+"-";
+        }
+        
+        if(mes<=9){
+            fechaActual += "0"+mes+"-";
+        }else{
+            fechaActual += mes+"-";
+        }
+        
+        fechaActual += año;
+        
+        return fechaActual;
+        
     }
     
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked

@@ -1,1 +1,2 @@
-Sala uno@56@
+Sala uno@24@
+Sala dos@10000@

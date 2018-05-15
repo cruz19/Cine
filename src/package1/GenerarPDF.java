@@ -26,7 +26,7 @@ public class GenerarPDF {
     private final Font fontNormal = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.NORMAL);
     private final Font fontItalic = new Font(Font.FontFamily.TIMES_ROMAN, 9, Font.ITALIC);
     
-    public void generarPDF(Recibo recibo) throws BadElementException, IOException{
+    public void generarPDF(Recibo recibo,String num_recibo) throws BadElementException, IOException{
         
         
         //Reporte con archivo PDF
@@ -35,11 +35,12 @@ public class GenerarPDF {
                 
                 Document document = new Document(PageSize.A6,35,35,10,10);
                 
-                PdfWriter pw = PdfWriter.getInstance(document, new FileOutputStream("Recibos/Recibo.pdf"));
+                String ruta = "Recibos/Recibo_"+recibo.getFecha()+"_"+num_recibo+".pdf";
+                
+                PdfWriter pw = PdfWriter.getInstance(document, new FileOutputStream(ruta));
                 
                 document.open();
                 
-                document.add(getInfo(" "));
                 
                 document.add(getCinta("C:/Users/user/Desktop/Cine/src/recursos/cintilla.png"));
                 
@@ -59,6 +60,7 @@ public class GenerarPDF {
                 String parrafoInfo = "";
                 parrafoInfo += "Usuario: "+recibo.getCliente()+"\n";
                 parrafoInfo += "Película: "+recibo.getPelicula()+"\n";
+                parrafoInfo += "Fecha: "+recibo.getFecha()+"\n";
                 parrafoInfo += "Sala: "+recibo.getSala()+"\n";
                 parrafoInfo += "Horario: "+recibo.getHorario()+"\n";
                 parrafoInfo += "Asientos comprados: \n";
@@ -109,7 +111,7 @@ public class GenerarPDF {
         return parrafo;
     }
     
-        private Paragraph getInfo(String texto){
+    private Paragraph getInfo(String texto){
         Paragraph parrafo = new Paragraph();
         Chunk c = new Chunk();
         parrafo.setAlignment(Element.ALIGN_CENTER);

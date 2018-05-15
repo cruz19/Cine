@@ -53,7 +53,6 @@ public final class VentanaAdmin extends javax.swing.JFrame {
             //Modelo Spinenr
         SpinnerNumberModel spModel = new SpinnerNumberModel();
         spModel.setValue(2);
-        spModel.setMaximum(1000);
         spModel.setMinimum(2);
         spModel.setStepSize(2);
         spCapacidad.setModel(spModel);

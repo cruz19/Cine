@@ -14,8 +14,9 @@ public class Recibo {
     private final ArrayList<String> asientos;
     private final String codigo;
     private final String pelicula;
+    private final String fecha;
 
-    public Recibo(String titulo, String cliente, String pelicula,String sala, String horario, String rutaImagen, String pie_pagina, ArrayList<String> asientos, String codigo) {
+    public Recibo(String titulo, String cliente, String pelicula, String fecha, String sala, String horario, String rutaImagen, String pie_pagina, ArrayList<String> asientos, String codigo) {
         this.titulo = titulo;
         this.rutaImagen = rutaImagen;
         this.cliente = cliente;
@@ -25,6 +26,7 @@ public class Recibo {
         this.asientos = asientos;
         this.codigo = codigo;
         this.pelicula = pelicula;
+        this.fecha = fecha;
     }
 
     public String getTitulo() {
@@ -61,6 +63,10 @@ public class Recibo {
     
     public String getPelicula(){
         return pelicula;
+    }
+    
+    public String getFecha(){
+        return fecha;
     }
     
 }
