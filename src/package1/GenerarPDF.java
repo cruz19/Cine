@@ -41,8 +41,7 @@ public class GenerarPDF {
                 
                 document.open();
                 
-                
-                document.add(getCinta("C:/Users/user/Desktop/Cine/src/recursos/cintilla.png"));
+                document.add(getCinta("Recibos/cintilla.png"));
                 
                 document.add(getInfo(" "));
                     //header
@@ -78,7 +77,7 @@ public class GenerarPDF {
                     //footer
                 document.add(getFooter(recibo.getPie_pagina()));
                 
-                document.add(getCinta("C:/Users/user/Desktop/Cine/src/recursos/cintilla.png"));
+                document.add(getCinta("Recibos/cintilla.png"));
                 
                 document.close();
                 
