@@ -31,7 +31,7 @@ public class Archivo {
             //JOptionPane.showMessageDialog(null, "Guardado exitosamente");
             
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
         finally{
             try{
@@ -40,7 +40,7 @@ public class Archivo {
                 }
                 
             }catch(IOException e){
-                //JOptionPane.showMessageDialog(null, e.getMessage());
+                System.out.println("Error: "+e.getMessage());
             }
         }
         
@@ -73,7 +73,7 @@ public class Archivo {
             }
             
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
         finally{
             try{
@@ -81,7 +81,7 @@ public class Archivo {
                     fr.close();
                 }
             }catch(IOException e){
-                //JOptionPane.showMessageDialog(null, e.getMessage());
+                System.out.println("Error: "+e.getMessage());
             }
         }
         
@@ -123,7 +123,7 @@ public class Archivo {
             }
             
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
         finally{
             try{
@@ -131,7 +131,7 @@ public class Archivo {
                     fr.close();
                 }
             }catch(IOException e){
-                //JOptionPane.showMessageDialog(null, e.getMessage());
+                System.out.println("Error: "+e.getMessage());
             }
         }
         
@@ -165,7 +165,7 @@ public class Archivo {
             }
             
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
         finally{
             try{
@@ -174,7 +174,7 @@ public class Archivo {
                 }
                 
             }catch(IOException e){
-                //JOptionPane.showMessageDialog(null, e.getMessage());
+                System.out.println("Error: "+e.getMessage());
             }
         }
         
@@ -201,7 +201,7 @@ public class Archivo {
             
             //JOptionPane.showMessageDialog(null, "Registro eliminado");
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
         finally{
             try{
@@ -210,7 +210,7 @@ public class Archivo {
                 }
                 
             }catch(IOException e){
-                //JOptionPane.showMessageDialog(null, e.getMessage());
+                System.out.println("Error: "+e.getMessage());
             }
         }
         
@@ -238,7 +238,7 @@ public class Archivo {
             }
             
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
         finally{
             try{
@@ -247,7 +247,7 @@ public class Archivo {
                 }
                 
             }catch(IOException e){
-                //JOptionPane.showMessageDialog(null, e.getMessage());
+                System.out.println("Error: "+e.getMessage());
             }
         }
         
@@ -277,7 +277,7 @@ public class Archivo {
                     
                     
         }catch(IOException e){
-            //JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
         finally{
             try{
@@ -286,7 +286,7 @@ public class Archivo {
                 }
                 
             }catch(IOException e){
-                //JOptionPane.showMessageDialog(null, e.getMessage());
+                System.out.println("Error: "+e.getMessage());
             }
         }
        

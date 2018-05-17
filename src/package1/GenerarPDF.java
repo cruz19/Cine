@@ -59,7 +59,7 @@ public class GenerarPDF {
                 String parrafoInfo = "";
                 parrafoInfo += "Usuario: "+recibo.getCliente()+"\n";
                 parrafoInfo += "Película: "+recibo.getPelicula()+"\n";
-                parrafoInfo += "Fecha: "+recibo.getFecha()+"\n";
+                parrafoInfo += "Fecha de compra: "+recibo.getFecha()+"\n";
                 parrafoInfo += "Sala: "+recibo.getSala()+"\n";
                 parrafoInfo += "Horario: "+recibo.getHorario()+"\n";
                 parrafoInfo += "Asientos comprados: \n";
