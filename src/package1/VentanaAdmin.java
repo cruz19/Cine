@@ -953,7 +953,7 @@ public final class VentanaAdmin extends javax.swing.JFrame {
 
         String nombre_sala = "Sala "+txtSala.getText().trim().toLowerCase();
         String capacidad = spCapacidad.getValue().toString();
-        
+                
         archivo = new Archivo(new File("Archivos_txt/Salas.txt"));
         
         if(archivo.buscar(nombre_sala) == null){ //Si el nombre de sala NO existe
@@ -1018,24 +1018,32 @@ public final class VentanaAdmin extends javax.swing.JFrame {
 
                         //Comprobar que la relacion (Horario-sala) NO exista en los archivos de enlaces
                     archivo = new Archivo(new File("Archivos_txt/Funciones.txt"));
-
-                    if(archivo.buscar(horario+"@"+id_sala) == null){
-
-                            //Almacenar los datos en un Request
-                        ArrayList<String> Request = new ArrayList();
-                        Request.add(nombre_pelicula);
-                        Request.add(horario);
-                        Request.add(id_sala);
-
-                            //Enviar Request para guardarlo en el archivo
-                        archivo.guardar(Request);
+                    
+                        ///////////////////////////////////////////////////////////////7
+                    if(archivo.rangoFuncion(id_sala, hora, minutos, horario.substring(horario.indexOf(" ")))){
                         
-                        JOptionPane.showMessageDialog(this, "Funcion creado exitosamente");
+                        if(archivo.buscar(horario+"@"+id_sala) == null){
+                                //Almacenar los datos en un Request
+                            ArrayList<String> Request = new ArrayList();
+                            Request.add(nombre_pelicula);
+                            Request.add(horario);
+                            Request.add(id_sala);
+
+                                //Enviar Request para guardarlo en el archivo
+                            archivo.guardar(Request);
+
+                            JOptionPane.showMessageDialog(this, "Funcion creado exitosamente");
 
 
+                        }else{
+                            JOptionPane.showMessageDialog(this, "La sala ya esta reservada para este horario");
+                        }
+                        
                     }else{
-                        JOptionPane.showMessageDialog(this, "La sala ya esta reservada para este horario");
+                        JOptionPane.showMessageDialog(this, "Cada pelicula tiene una duracion de una hora");
                     }
+                    
+                    
 
                 }else{
                     JOptionPane.showMessageDialog(this, "No hay salas para el proceso de enlazamiento");

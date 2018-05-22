@@ -293,4 +293,78 @@ public class Archivo {
         return registros; //Devolver cada registro(Linea) del File seleccionado
     }
     
+    public boolean rangoFuncion(String sala,int hora,int minutos,String formato){ //Recibimos la sala para comparar sus horarios
+          
+        //JOptionPane.showMessageDialog(null, sala+" "+hora+" "+minutos+" "+formato);
+        
+        boolean verificarRango = true;
+        
+        FileReader fr = null;
+        BufferedReader br = null;
+        
+        try{
+            
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+            
+            String registro = "";
+            
+            while((registro=br.readLine())!=null){
+                
+                if(registro.contains(sala)){
+                    
+                    String[] datos = registro.split("@");
+                    String this_horario = datos[1]; //el segundo elemento del array es el horario de la funcion
+                    
+                        //Almacenar hora, minutos y formato AM/PM
+                    int this_hora = Integer.parseInt(this_horario.substring(0,this_horario.indexOf(":")));
+                    this_horario = this_horario.substring(this_horario.indexOf(":")+1);
+                    int this_minutos = Integer.parseInt(this_horario.substring(0,this_horario.indexOf(" ")));
+                    String this_formato = this_horario.substring(this_horario.indexOf(" "));
+                    
+                    //JOptionPane.showMessageDialog(null, "Hora: "+this_hora+"\nMinutos: "+this_minutos+"\nFormato: "+this_formato);
+                    
+                    if(formato.equalsIgnoreCase(this_formato)){ //si los formatos coinciden
+                        
+                            //CASO 1: si la hora es menor o igual && los minutos son mayores a los prpouestos
+                        if(hora<=this_hora && minutos>this_minutos){
+                            verificarRango = false;
+                            break;
+                        }
+                            //CASO 2
+                        if(hora>=this_hora && minutos<this_minutos){
+                            verificarRango = false;
+                            break;
+                        }
+                        
+                        
+                    }
+                    
+                }
+                
+            }
+                    
+                    
+        }catch(IOException e){
+            System.out.println("Error: "+e.getMessage());
+        }
+        finally{
+            try{
+                if(fr != null){
+                    fr.close();
+                }
+                
+            }catch(IOException e){
+                System.out.println("Error: "+e.getMessage());
+            }
+        }
+        
+        
+        
+        
+        return verificarRango;
+        
+        
+    }
+    
 }

@@ -1,2 +1,3 @@
-Sala uno@120@
-Sala dos@300@
+Sala uno@1200@
+Sala tres@2@
+Sala dos@2@
